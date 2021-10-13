@@ -16,10 +16,10 @@
       return router.urlFor(routeName, { queryParams: { max_posts: 1 } });
     },
     forceActive: (category, args, router) => {
-   // const categoryCheck = category && category.name === "Forum";
-   // const filterCheck = args.filterMode === "unanswered";
-    const urlCheck = router.currentURL.indexOf(`?max_posts=1`);
-    return urlCheck;
+   const categoryCheck = category && category.name === "Forum";
+    const urlCheck = router.currentURL.indexOf(`/c/forum/${args.tagId}`);
+    const filterCheck = router.currentRouteName === "tags.showCategory";
+    return categoryCheck && urlCheck && filterCheck;
   }
   });
   api.modifyClass("component:navigation-item", {
