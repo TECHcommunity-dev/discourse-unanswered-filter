@@ -16,9 +16,7 @@
       return router.urlFor(routeName, { queryParams: { max_posts: 1 } });
     },
     forceActive: (category, args, router) => {
-    const queryParams = args.currentRouteQueryParams;
-    const categoryCheck = category && category.name === "Forum";
-    return queryParams && queryParams["max_posts"] === "1" && categoryCheck;
+    return router.currentURL.includes(`?max_posts=1`);
   }
   });
   api.modifyClass("component:navigation-item", {
