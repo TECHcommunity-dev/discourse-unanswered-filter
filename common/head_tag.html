@@ -17,8 +17,9 @@
     },
     forceActive: (category, args, router) => {
     const categoryCheck = category && category.name === "Forum";
-    const urlCheck = router.currentURL.indexOf(`/c/forum/`);    
-    return categoryCheck && urlCheck;
+    const urlCheck = router.currentURL.indexOf(`/c/forum/`); 
+    const filterCheck args.filterMode === "unanswered";
+    return categoryCheck && urlCheck && filterCheck;
   }
   });
   api.modifyClass("component:navigation-item", {
