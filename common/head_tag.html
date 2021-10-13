@@ -20,8 +20,7 @@
     active: Ember.computed("contentFilterMode", "filterMode", function() {
       let contentFilterMode = this.get("content").get("filterMode");
       if (
-        window.location.pathname &&
-        window.location.pathname.split("&")[0] === "?max_posts=1"
+        window.location.pathname === "/c/forum/1?max_posts=1"
       ) {
         return contentFilterMode === "unanswered";
       } else {
