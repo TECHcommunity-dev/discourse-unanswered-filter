@@ -16,7 +16,7 @@
     }
   });
   api.modifyClass("component:navigation-item", {
-    active: Ember.computed("contentFilterMode", "filterMode", function() {
+    forceActive: Ember.computed("contentFilterMode", "filterMode", function() {
       let contentFilterMode = this.get("content").get("filterMode");
       if (
         window.location.search &&
