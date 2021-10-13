@@ -19,7 +19,7 @@
     const categoryCheck = category && category.name === "Forum";
     const filterCheck = args.filterMode === "unanswered";
     const urlCheck = router.currentURL.indexOf(`/tags/c/forum/1/${args.tagId}?max_posts=1`) || router.currentURL.indexOf(`/c/forum?max_posts=1`);
-    return categoryCheck && filterCheck;
+    return categoryCheck && filterCheck && urlCheck;
   }
   });
   api.modifyClass("component:navigation-item", {
