@@ -1,5 +1,6 @@
 <script type="text/discourse-plugin" version="0.8">
   let exclusionList = settings.exclusions.split("|");
+  
   api.addNavigationBarItem({
     name: "unanswered",
     displayName: I18n.t(themePrefix("unanswered.title")),
@@ -16,9 +17,8 @@
     },
     forceActive: (category, args, router) => {
     const categoryCheck = category && category.name === "Forum";
-    const urlCheck = router.currentURL.indexOf(`/c/forum/`);
-    const filterCheck = router.currentRouteName === "tags.showCategory";
-    return categoryCheck && urlCheck && filterCheck;
+    const urlCheck = router.currentURL.indexOf(`/c/forum/`);    
+    return categoryCheck && urlCheck;
   }
   });
   api.modifyClass("component:navigation-item", {
